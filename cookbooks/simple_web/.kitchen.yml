@@ -1,6 +1,9 @@
 ---
 driver:
   name: vagrant
+  network:
+    - ["forwarded_port", {guest: 80, host: 8080}]
+    - ["forwarded_port", {guest: 443, host: 4433}]
 
 provisioner:
   name: chef_zero
@@ -15,7 +18,13 @@ suites:
   - name: default
     run_list:
       - recipe[simple_web::default]
+      - recipe[apt::unattended-upgrades]
+      - recipe[os-hardening]
+      - recipe[ssh-hardening]
     verifier:
       inspec_tests:
-        - test/recipes
-    attributes:
+        - https://github.com/chris-rock/acme-inspec-profile
+    attributes: 
+      apt:
+        unattended_upgrades:
+          allowed_origins: ["origin=Ubuntu,archive=xenial-security"]

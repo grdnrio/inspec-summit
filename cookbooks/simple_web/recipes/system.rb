@@ -7,3 +7,6 @@
 package 'apache2' do
   action :install
 end
+
+include_recipe 'apache2'
+include_recipe 'apache2::mod_ssl'
