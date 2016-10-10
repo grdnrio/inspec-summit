@@ -7,6 +7,7 @@ long_description 'Installs/Configures simple_web'
 version '0.1.0'
 
 depends 'apt'
+depends 'firewall'
 depends 'apache2'
 
 # hardening cookbooks

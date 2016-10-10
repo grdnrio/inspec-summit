@@ -12,13 +12,12 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
+  - name: ubuntu-14.04
 
 suites:
   - name: default
     run_list:
       - recipe[simple_web::default]
-      - recipe[apt::unattended-upgrades]
       - recipe[os-hardening]
       - recipe[ssh-hardening]
     verifier:
