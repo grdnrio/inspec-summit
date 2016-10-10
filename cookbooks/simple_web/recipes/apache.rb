@@ -28,13 +28,26 @@ template '/etc/apache2/sites-available/default-ssl.conf' do
   action :create
 end
 
+directory '/etc/apache2/ssl' do
+  owner 'root'
+  group 'root'
+  mode '0700'
+  action :create
+end
+
 cookbook_file '/etc/apache2/ssl/apache.crt' do
   source 'apache.crt'
+  owner 'root'
+  group 'root'
+  mode '0600'
   action :create
 end
 
 cookbook_file '/etc/apache2/ssl/apache.key' do
   source 'apache.key'
+  owner 'root'
+  group 'root'
+  mode '0600'
   action :create
 end
 

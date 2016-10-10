@@ -11,6 +11,8 @@
 
                 SSLCertificateFile      /etc/apache2/ssl/apache.crt
                 SSLCertificateKeyFile /etc/apache2/ssl/apache.key
+                
+                SSLProtocol <%= node['apache']['mod_ssl']['protocol'] %>
 
                 #SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
                 <FilesMatch "\.(cgi|shtml|phtml|php)$">

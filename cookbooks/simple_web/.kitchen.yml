@@ -1,9 +1,10 @@
 ---
 driver:
   name: vagrant
+  vm_name: 192.168.56.40
   network:
-    - ["forwarded_port", {guest: 80, host: 8080}]
-    - ["forwarded_port", {guest: 443, host: 4433}]
+    - ["forwarded_port", {guest: 443, host: 443}]
+    - ["private_network", {ip: '192.168.56.40'}]
 
 provisioner:
   name: chef_zero
@@ -18,11 +19,11 @@ suites:
   - name: default
     run_list:
       - recipe[simple_web::default]
-      - recipe[os-hardening]
-      - recipe[ssh-hardening]
+
     verifier:
       inspec_tests:
-        - https://github.com/chris-rock/acme-inspec-profile
+      # - https://github.com/chris-rock/acme-inspec-profile
+        - test/integration
     attributes: 
       apt:
         unattended_upgrades:
