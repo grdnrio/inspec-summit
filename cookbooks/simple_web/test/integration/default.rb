@@ -5,10 +5,6 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at https://docs.chef.io/inspec_reference.html
 
-describe port(80) do
-  it { should_not be_listening }
-end
-
 describe port(443) do
   it { should be_listening }
 end
@@ -20,10 +16,6 @@ end
 describe service(apache.service) do
   it { should be_enabled }
   it { should be_running }
-end
-
-describe package('telnet') do
-  it { should_not be_installed }
 end
 
 describe directory('/var/www/html') do

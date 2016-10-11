@@ -15,5 +15,4 @@ default['website']['colour'] = 'blue'
 # display logo - none / inline
 default['website']['logo'] = 'none'
 # title text
-default['website']['title'] = 'This is my awesome website'
-
+default['website']['title'] = 'My awesome website'

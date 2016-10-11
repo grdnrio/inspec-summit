@@ -22,7 +22,6 @@ suites:
 
     verifier:
       inspec_tests:
-      # - https://github.com/chris-rock/acme-inspec-profile
         - test/integration
     attributes: 
       apt:
